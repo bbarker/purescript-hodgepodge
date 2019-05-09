@@ -33,9 +33,8 @@ copy it into your projects.
 # Building the container
 
 `psc.sh` will automatically pull the latest container from DockerHub, but you
-can feel free to build a local alternative and modify `psc.sh` to use that (just
-comment out the `docker pull` command and set ``DHUB_PREFIX=""`). This could probably be streamlined a bit
-(submit a PR!).
+can feel free to build a local alternative and use `./psc_local.sh` (which is
+just a wrapper for `psc.sh`), or a modification thereof.
 
 If you want to build the container, just set the `PS_VERSION` in `build.socker.sh`
 and then run it.

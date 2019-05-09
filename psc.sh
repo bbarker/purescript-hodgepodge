@@ -10,10 +10,18 @@
 #
 
 
+: "${IMG_NAME:=purescript-hodgepodge}"
+: "${IMG_VER:=latest}"
 # Set this to the empty string to use locally built image:
-DHUB_PREFIX="bbarker/"
-IMG_NAME=purescript-hodgepodge
-IMG_VER="latest"
+if ! [[ -v "DHUB_PREFIX" ]]; then
+  : "${DHUB_PREFIX:=bbarker/}"
+fi
+
+# If really an empty string, then we interpret as using a local image
+# and do not pull:
+if ! [ -z "$DHUB_PREFIX" ]; then
+  docker pull "${DHUB_PREFIX}${IMG_NAME}:${IMG_VER}"
+fi
 
 # Make these directories so docker (root) does not!
 mkdir -p ~/.pulp
@@ -22,7 +30,6 @@ mkdir -p ~/.npm-packages
 mkdir -p ~/.cache
 touch ~/.pulp/github-oauth-token
 
-docker pull "${DHUB_PREFIX}${IMG_NAME}:${IMG_VER}"
 
 docker run --rm -ti \
        --volume /etc/passwd:/etc/passwd:ro \
