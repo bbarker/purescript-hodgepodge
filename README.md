@@ -13,6 +13,7 @@ Currently it includes:
 * `pulp`
 * `purescript`
 * `spago`
+* `yarn`
 
 ## Caveats
 * Only tested on Linux (Ubuntu), but would like to hear of experience on other
@@ -41,10 +42,4 @@ and then run it.
 
 ## Pushing the container
 
-Mainly for me:
-
-```
-docker tag purescript-hodgepodge:<version> bbarker/purescript-hodgepodge:latest
-docker push bbarker/purescript-hodgepodge:<version>
-docker push bbarker/purescript-hodgepodge:latest
-```
+See `push.sh`.

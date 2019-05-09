@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:12
 
 MAINTAINER Brandon Elam Barker
 # Based on Alexej Bondarenko's Dockerfile at:
@@ -8,7 +8,7 @@ ARG PS_VERSION
 ENV PURESCRIPT_DOWNLOAD_SHA1 1969df7783f1e95b897f5b36ab1e12ab9cbc9166
 ENV PSC_PACKAGE_DOWNLOAD_SHA1 09e033708f412e25ff049e5a9de42438b4696a33
 
-RUN npm install -g bower parcel-bundler pulp@12.4.2 spago@0.7.7
+RUN npm install -g bower parcel-bundler pulp@12.4.2 spago@0.7.7 yarn@1.15.2
 
 RUN cd /opt \
     && wget https://github.com/purescript/purescript/releases/download/v${PS_VERSION}/linux64.tar.gz \
