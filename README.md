@@ -9,6 +9,7 @@ Currently it includes:
 * `bower`
 * `npm`
 * `parcel-bundler`
+* `psc-package`
 * `pulp`
 * `purescript`
 * `spago`

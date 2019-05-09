@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+#
+# If you found this in a repository other than
+# purescript-hodgepodge, know that it was likely copied or modified
+# from the script of the same name located at
+# https://github.com/bbarker/purescript-hodgepodge
+#
+# You can find more information there about this script.
+#
+
+
 # Set this to the empty string to use locally built image:
 DHUB_PREFIX="bbarker/"
 IMG_NAME=purescript-hodgepodge
