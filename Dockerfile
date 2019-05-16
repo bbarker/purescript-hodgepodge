@@ -27,8 +27,6 @@ RUN mkdir -p /opt/bin && cd /opt \
 
 ENV PATH /opt/bin:/opt/purescript:/opt/psc-package:$PATH
 
-RUN userdel node
-
 RUN echo "#!/usr/bin/env bash\n\$@\n" > /opt/entrypoint && \
   chmod a+x /opt/entrypoint
 
