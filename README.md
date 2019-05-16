@@ -18,8 +18,11 @@ Currently it includes:
 ## Caveats
 * Only tested on Linux (Ubuntu), but would like to hear of experience on other
   systems.
+* For passing mutiple arguments: TODO
 
 # Using the container
+
+## Tightly coupled with host OS
 
 * Run a command , e.g. `./psc.sh npm run build`. This will run `npm run build`
 in the container with the CWD mounted and then exit. Alternatively
@@ -29,6 +32,15 @@ if you want to issue multiple commands in the container quickly, you can run
 You can also put `psc.sh` somewhere in your `PATH` for convenience, and/or
 copy it into your projects.
 
+## Isolated from Host OS
+
+Same as the above tightly coupled isntructions, but use the `psc_isolated.sh`
+variant. The container is stopped but not deleted when finished, so you can copy
+files out, e.g.
+
+```
+TODO
+```
 
 # Building the container
 
