@@ -48,9 +48,14 @@ TODO
 can feel free to build a local alternative and use `./psc_local.sh` (which is
 just a wrapper for `psc.sh`), or a modification thereof.
 
-If you want to build the container, just set the `PS_VERSION` in `build.socker.sh`
+If you want to build the container, just set the `PS_VERSION` in `build-docker.sh`
 and then run it.
 
 ## Pushing the container
 
-See `push.sh`.
+Update the `RELEASE` and/or `PS_VERSION` as needed in `build-docker.sh`
+(generally needed if it isn't a minor release), the build a new image
+by running `build-docker.sh`.
+
+Then see `push.sh`.
+
