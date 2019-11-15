@@ -5,9 +5,12 @@ MAINTAINER Brandon Elam Barker
 # https://raw.githubusercontent.com/ersocon/docker-purescript/master/Dockerfile
 
 ARG PS_VERSION
-ENV PURESCRIPT_DOWNLOAD_SHA1 6838ae5972a6130608c04002e46e96915e05f256
+ENV PURESCRIPT_DOWNLOAD_SHA1 58b14014ba08ef6550fa61700797688d27a9a2f3
 ENV PSC_PACKAGE_DOWNLOAD_SHA1 09e033708f412e25ff049e5a9de42438b4696a33
-ENV SPAGO_DOWNLOAD_SHA1 e6dc87d7edd520b3fafc9bb7e69382a4453f02ec
+ENV SPAGO_DOWNLOAD_SHA1 30f8d32d1bfc80be61a535f959bdbad084dbb5a7
+
+RUN apt-get update && apt-get install -y libsecret-1-dev \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g bower parcel-bundler pulp@12.4.2 yarn@1.15.2
 
@@ -20,7 +23,7 @@ RUN mkdir -p /opt/bin && cd /opt \
     && echo "$PSC_PACKAGE_DOWNLOAD_SHA1 linux64.tar.gz" | sha1sum -c - \
     && tar -xvf linux64.tar.gz \
     && rm /opt/linux64.tar.gz \
-    && wget https://github.com/spacchetti/spago/releases/download/0.9.0.0/linux.tar.gz \
+    && wget https://github.com/spacchetti/spago/releases/download/0.11.1.0/linux.tar.gz \
     && echo "$SPAGO_DOWNLOAD_SHA1 linux.tar.gz" | sha1sum -c - \
     && tar -xvf linux.tar.gz -C bin/ \
     && rm /opt/linux.tar.gz
