@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# Use like: ./push.sh <version>_<release>
+# Use like: ./push.sh <version>_r<release>
 # This will also updated the 'latest' tag.
 #
 
