@@ -1,8 +1,10 @@
 # purescript-hodgepodge
 
-This is a docker container targeted at purescript development, and secondarily,
+[![Docker Pulls](https://img.shields.io/docker/pulls/bbarker/purescript-hodgepodge?style=plastic)](https://hub.docker.com/r/bbarker/purescript-hodgepodge/tags)
+
+This is a docker container targeted at PureScript development, and secondarily,
 could be used for deployment. Just as importantly, it is a runner for that docker
-container that containes many host mount points to make development proceed smoothly.
+container that contains many host mount points to make development proceed smoothly.
 
 Currently it includes:
 
@@ -18,7 +20,7 @@ Currently it includes:
 ## Caveats
 * Only tested on Linux (Ubuntu), but would like to hear of experience on other
   systems.
-* For passing mutiple arguments: TODO
+* For passing multiple arguments: TODO
 
 # Using the container
 
@@ -34,13 +36,20 @@ copy it into your projects.
 
 ## Isolated from Host OS
 
-Same as the above tightly coupled isntructions, but use the `psc_isolated.sh`
-variant. The container is stopped but not deleted when finished, so you can copy
-files out, e.g.
+Same as the above tightly coupled instructions, but use the `psc_isolated.sh`
+variant. The container is stopped but not deleted when finished, so you
+[can copy](https://docs.docker.com/engine/reference/commandline/cp/) files out, e.g.
 
 ```
 TODO
 ```
+
+## IDEs
+
+### Visual Studio Code
+
+As of 0.13.8_r2, you can connect to a running container from Visual
+Studio Code (vscode) using the REmote Containers extension.
 
 # Building the container
 

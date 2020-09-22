@@ -9,6 +9,7 @@
 # You can find more information there about this script.
 #
 
+CID_FILE=dev_container.cid
 
 : "${IMG_NAME:=purescript-hodgepodge}"
 : "${IMG_VER:=latest}"
@@ -30,8 +31,12 @@ mkdir -p ~/.npm-packages
 mkdir -p ~/.cache
 touch ~/.pulp/github-oauth-token
 
+rm -f "$CID_FILE"
+
+sleep 1 && docker exec --user root $(cat "$CID_FILE") /bin/sh -c "chown $USER:node /home/$USER" &
 
 docker run --rm -ti \
+       --cidfile ./"$CID_FILE" \
        --volume /etc/passwd:/etc/passwd:ro \
        --volume "$PWD":/wd \
        --volume "$HOME/.gitconfig:$HOME/.gitconfig:ro" \
@@ -46,6 +51,7 @@ docker run --rm -ti \
        -e "XDG_CONFIG_HOME=/wd/.xdg_config_home" \
        -e "XDG_DATA_HOME=/wd/.xdg_data_home" \
        "${DHUB_PREFIX}${IMG_NAME}:${IMG_VER}" "$@"
+
 
 # Add this before the last line (image name) for debugging:
 #        --entrypoint "/bin/bash" \
